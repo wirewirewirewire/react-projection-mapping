@@ -1,0 +1,45 @@
+{
+  "name": "react-projection-mapping",
+  "version": "1.0.0",
+  "main": "build/bundle.js",
+  "module": "build/bundle.js",
+  "scripts": {
+    "build:api": "rollup --config rollup.api.config.js --bundleConfigAsCjs",
+    "start": "nodemon — exec babel-node src/index.js",
+    "build:tsc": "tsc src/index.ts",
+    "test": "jest --config=jest.config.js",
+    "_clear": "rimraf build/compiled/*",
+    "_tsc": "tsc",
+    "_make-bundle": "rollup --config rollup.config.mjs",
+    "build": "npm run _clear && npm run _make-bundle",
+    "dev": "rollup --config --watch"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "@apollo/client": "^3.7.17",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.2",
+    "@babel/node": "^7.20.2",
+    "@babel/plugin-proposal-export-default-from": "^7.18.10",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "jest": "^27.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.1",
+    "rollup": "^3.28.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-node-externals": "^5.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.57.1",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "react-draggable": "^4.4.5"
+  },
+  "gitHead": "b5dfaaed39daf6afaf54eba7147819f5f3c8fe47"
+}

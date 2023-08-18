@@ -1,0 +1,21 @@
+{
+  "name": "react-projection-mapping-tools",
+  "version": "0.8.0",
+  "private": true,
+  "license": "Apache-2",
+  "author": {
+    "name": "Robert Gühne",
+    "email": "robert@wirewire.de"
+  },
+  "scripts": {
+    "build": "lerna run build --stream --prefix",
+    "lerna:publish": "lerna publish --conventional-commits"
+  },
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
+  "devDependencies": {
+    "lerna": "^7.1.5"
+  }
+}

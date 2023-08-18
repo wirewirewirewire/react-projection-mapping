@@ -1,0 +1,10 @@
+{
+  "npmClient": "yarn",
+  "packages": ["packages/*", "docs"],
+  "command": {
+    "version": {
+      "message": "%s [skip ci]"
+    }
+  },
+  "version": "1.94.0"
+}
