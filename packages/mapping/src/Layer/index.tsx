@@ -44,7 +44,7 @@ export default function Layer({
 
   /* Set default coordinates */
   React.useEffect(() => {
-    if (!layerRef.current) return;
+    if (!layerRef.current || distortCoordinates) return;
     const position = layerRef.current.getBoundingClientRect();
     const p = [
       0,

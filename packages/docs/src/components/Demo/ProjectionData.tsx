@@ -14,7 +14,7 @@ export default function ProjectionData() {
   } = projectionHook;
   return (
     <div>
-      <ReactJson collapsed={2} src={projectionHook} enableClipboard={false} />
+      <ReactJson collapsed={2} src={projectionHook} enableClipboard={true} />
     </div>
   );
 }

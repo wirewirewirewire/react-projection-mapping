@@ -18,6 +18,21 @@
     "dist",
     "README.md"
   ],
+  "keywords": [
+    "react",
+    "projection",
+    "projection mapping",
+    "mapping",
+    "video mapping",
+    "react",
+    "component",
+    "wirewire",
+    "react-component",
+    "exhibition",
+    "museum",
+    "3d transform",
+    "matrix3d"
+  ],
   "scripts": {
     "build:api": "rollup --config rollup.api.config.js --bundleConfigAsCjs",
     "start": "nodemon — exec babel-node src/index.js",

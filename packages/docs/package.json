@@ -28,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-json-view": "^1.21.3",
     "react-projection-mapping": "^1.95.2",
+    "sass": "^1.66.1",
     "typescript": "5.1.6"
   }
 }

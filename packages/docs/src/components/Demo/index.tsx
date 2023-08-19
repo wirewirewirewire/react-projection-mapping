@@ -6,7 +6,8 @@ import {
   SplitLayer,
   useProjection,
 } from "react-projection-mapping";
-import sampleImageMapping from "./sample-image-mapping.jpg";
+// import sampleImageMapping from "./sample-image-mapping.jpg";
+import sampleImageMapping from "./popsicle.svg";
 import styles from "./demo.module.scss";
 import Image from "next/image";
 import ProjectionData from "./ProjectionData";
@@ -17,10 +18,14 @@ export default function Demo() {
   const update = ({ layers, isEnd }: any) => {
     console.log("update", layers, isEnd);
   };
-  const [edit, setEdit] = useState(false);
-  const [enabled, setEnabled] = useState(false);
+  const [edit, setEdit] = useState(true);
+  const [enabled, setEnabled] = useState(true);
 
   const data = {
+    "tile-0": [334, -191, 514, -108, 334, -2, 518, 83],
+    "tile-1": [315, -107, 461, -213, 317, 84, 461, -22],
+    imageLayer: [-326, 175, -212, 93, -184, 236, -73, 157],
+
     //textLayer: [0, 0, 100, 0, 100, 100, 0, 100],
     //imageLayer: [0, 0, 100, 0, 100, 100, 0, 100],
   };
@@ -65,6 +70,8 @@ export default function Demo() {
         onChange={(e) => setEnabled(e.target.checked)}
         checked={enabled}
       />
+
+      <ProjectionData />
     </Projection>
   );
 }
