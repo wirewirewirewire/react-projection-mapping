@@ -40,7 +40,10 @@ export default function Home() {
             </Link>
 
             <div className={styles.spacer} />
-            <Link href="/imprint" className={styles.link}>
+            <Link
+              href="https://www.npmjs.com/package/react-projection-mapping"
+              className={styles.link}
+            >
               npm <FontAwesomeIcon icon={faNpm} />
             </Link>
           </div>
