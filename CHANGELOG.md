@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.95.2](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.1...v1.95.2) (2023-08-19)
+
+
+### Bug Fixes
+
+* **readme:** include readme ([d5ea81e](https://github.com/wirewirewirewire/react-projection-mapping/commit/d5ea81efe74aa1c172a1f1dfee91e8a78ba024a1))
+
+
+
+
+
 ## [1.95.1](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.0...v1.95.1) (2023-08-19)
 
 

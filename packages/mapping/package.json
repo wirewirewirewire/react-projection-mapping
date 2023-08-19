@@ -1,6 +1,6 @@
 {
   "name": "react-projection-mapping",
-  "version": "1.95.0",
+  "version": "1.95.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
