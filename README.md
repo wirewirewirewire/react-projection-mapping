@@ -1,25 +1,17 @@
 # react-projection-mapping
 
-Helpers to work with interactive exhibitions build in [react](https://react.dev).
 
-## Features
+<img src="https://raw.githubusercontent.com/wirewirewirewire/react-projection-mapping/main/packages/docs/src/app/github-image.png" data-canonical-src="https://raw.githubusercontent.com/wirewirewirewire/react-projection-mapping/main/packages/docs/src/app/github-image.png" width="400"  />
 
-- API interface
-- LanguageSwitcher
-- Mdx Components
-- TouchElement
-- UniPiControl
-- Preview
-- Timeout Usage
-- Design Tokens (to be moved)
+Distort a container by using css 3D transforms for projection mapping and software keystone for [react](https://react.dev).
 
-## Distort 🖼️
+## Features 🌟
 
-This tool allows you to distort a container by using css 3D transforms for projection mapping and software keystone.
+- Distort any container by using a rectangle
+- Centralized control and update of multiple containers
+- Split up containers into tiles
 
-TODO: Add split tool, add select indivdual container or corner
-
-#### Usage
+## Usage 🖼️
 
 Wrap your application with `DistortControl`. TODO: Seperate Make sure to add the `NEXT_PUBLIC_KEYSTONE_SECRET` environment variable to your application.
 
@@ -65,8 +57,11 @@ import { DistortContainer } from "@wirewire/react-exhibition";
 
 <DistortContainer id="total">Element</DistortContailer>
 ```
+### DistortSplit
 
-### useDistort
+TODO: Add docs
+
+### useDistort() hook
 
 TODO: Hook to get the current distort status or manually set it from any place inside `DistortControl`.
 
@@ -76,27 +71,3 @@ TODO: Hook to get the current distort status or manually set it from any place i
 - http://franklinta.com/2014/09/08/computing-css-matrix3d-transforms/
 - https://bl.ocks.org/mbostock/10571478
 - https://github.com/glowbox/maptasticjs
-
-### useIsDesktop
-
-## API
-
-Endpoints to download data
-
-```
-NEXT_PUBLIC_KEYSTONE_SECRET=XXXXXX
-```
-
-## MDX
-
-Use mdx components inside the markdown renderer
-
-```jsx
-import { components } from "@wirewire/react-exhibition/mdx";
-
-<MDXRemote {...entry.mdxSource} components={components} />;
-```
-
-```
-
-```
