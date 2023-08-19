@@ -1,6 +1,5 @@
 # react-projection-mapping
 
-
 <img src="https://raw.githubusercontent.com/wirewirewirewire/react-projection-mapping/main/packages/docs/src/app/github-image.png" data-canonical-src="https://raw.githubusercontent.com/wirewirewirewire/react-projection-mapping/main/packages/docs/src/app/github-image.png" width="400"  />
 
 Distort a container by using css 3D transforms for projection mapping and software keystone for [react](https://react.dev).
@@ -13,14 +12,14 @@ Distort a container by using css 3D transforms for projection mapping and softwa
 
 ## Usage 🖼️
 
-Wrap your application with `DistortControl`. TODO: Seperate Make sure to add the `NEXT_PUBLIC_KEYSTONE_SECRET` environment variable to your application.
+Wrap your application with `Projection`. TODO: Seperate Make sure to add the `NEXT_PUBLIC_KEYSTONE_SECRET` environment variable to your application.
 
 ```jsx
-import { DistortControl } from "@wirewire/react-exhibition";
+import { Projection } from "@wirewire/react-exhibition";
 
-<DistortControl data={data} update={update} editing={true} enabled={true}>
+<Projection data={data} update={update} editing={true} enabled={true}>
   Your containers
-</DistortControl>;
+</Projection>;
 ```
 
 ### Saving values
@@ -30,7 +29,7 @@ Use the `update` prop to save the current values.
 ```jsx
 const update = ({ values, action }) => {
   if (action === "onEnd") {
-    localStorage.setItem("distort", JSON.stringify(values));
+    localStorage.setItem("projection", JSON.stringify(values));
   }
 };
 ```
@@ -43,27 +42,28 @@ const update = ({ values, action }) => {
 const [items, setItems] = useState([]);
 
 useEffect(() => {
-  const data = JSON.parse(localStorage.getItem("distort"));
+  const data = JSON.parse(localStorage.getItem("projection"));
   if (data) {
     setItems(data);
   }
 }, []);
 ```
 
-Each Element you want to distort should wrapped with `DistortContainer`. Make sure to add an unique `id`.
+Each Element you want to distort should wrapped with `Layer`. Make sure to add an unique `id`.
 
 ```jsx
-import { DistortContainer } from "@wirewire/react-exhibition";
+import { Layer } from "@wirewire/react-exhibition";
 
-<DistortContainer id="total">Element</DistortContailer>
+<Layer id="total">Element</Layer>;
 ```
-### DistortSplit
+
+### SplitLayer
 
 TODO: Add docs
 
-### useDistort() hook
+### `useProjection()`` hook
 
-TODO: Hook to get the current distort status or manually set it from any place inside `DistortControl`.
+TODO: Hook to get the current distort status or manually set it from any place inside `Projection`.
 
 #### Inspired by
 

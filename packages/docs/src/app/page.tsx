@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.scss";
-import { Button, UNCoreProvider, Wrapper } from "@un/react";
+import { Button, UNCoreProvider, Wrapper } from "@wfp/react";
 import Element from "@/components/Element";
 import Spline from "@splinetool/react-spline";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Demo from "@/components/Demo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
   return (
@@ -14,7 +17,7 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.description}>
             <h2 className={styles.title}>
-              <b className={styles.mainTitle}>Polyxo</b> Studios GmbH
+              <b className={styles.mainTitle}>react</b>-projection-mapping
             </h2>
           </div>
           <div className={styles.elements}>
@@ -23,38 +26,22 @@ export default function Home() {
               wrapperClassName={styles.exhibitionWrapper}
               href="https://github.com/wirewirewirewire"
               text="Exhibition Management"
-              scene="https://prod.spline.design/LqDQiJyy9JLJLDym/scene.splinecode"
+              scene="https://prod.spline.design/cRFO1K5kSDHeXPer/scene.splinecode"
             ></Element>
-
-            <Element
-              className={styles.wirewire}
-              wrapperClassName={styles.wirewireWrapper}
-              href="https://wirewire.de"
-              text="wirewire GmbH"
-              scene="https://prod.spline.design/nlOa3J6EuYkGxK6j/scene.splinecode"
-            ></Element>
-            <Element
-              className={styles.anaboxSmart}
-              wrapperClassName={styles.anaboxSmartWrapper}
-              fullWidth
-              href="https://anabox-smart.de"
-              text="ANABOX smart"
-              // scene="https://prod.spline.design/VgqZLz33bxCW9hvb/scene.splinecode"
-              scene="https://prod.spline.design/SWGXSXjKWfLlZVAQ/scene.splinecode"
-            ></Element>
+            <Demo />
           </div>
 
           <div className={styles.footer}>
             <Link
-              href="https://anabox-smart.de/posts/career"
+              href="https://github.com/wirewirewirewire/react-projection-mapping"
               className={styles.link}
             >
-              Jobs
+              GitHub <FontAwesomeIcon icon={faGithub} />
             </Link>
 
             <div className={styles.spacer} />
             <Link href="/imprint" className={styles.link}>
-              Impressum
+              npm <FontAwesomeIcon icon={faNpm} />
             </Link>
           </div>
         </main>

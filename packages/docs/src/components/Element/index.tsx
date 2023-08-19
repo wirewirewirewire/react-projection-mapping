@@ -45,24 +45,12 @@ export default function Element({
   }, [isShown]);
 
   return (
-    <Link
-      href={href}
+    <div
       className={`${styles.element} ${wrapperClassName} ${
         fullWidth ? styles.fullWidth : ""
       }`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
-      /*onTouchStart={() => {
-        setTouchStartTime(Date.now());
-        setIsShown(true);
-      }}
-      onTouchEnd={() => {
-        if (Date.now() - touchStartTime > 500) {
-          setIsShown(false);
-        } else {
-          window.location.assign(href);
-        }
-      }}*/
     >
       <span className={`${styles.elementInside} ${className}`}>
         <Spline
@@ -72,10 +60,6 @@ export default function Element({
           // onMouseHover={onHover}
         />
       </span>
-      <span className={styles.text}>
-        {text}
-        <FontAwesomeIcon icon={faArrowRight} className={styles.arrow} />
-      </span>
-    </Link>
+    </div>
   );
 }

@@ -120,7 +120,7 @@ export function transform2d(elt, x1, y1, x2, y2, x3, y3, x4, y4) {
 
 var corners = [100, 100, 300, 100, 100, 300, 300, 300];
 function update() {
-  var box = document.getElementById("box");
+  /* var box = document.getElementById("box");
   transform2d(
     box,
     corners[0],
@@ -132,7 +132,7 @@ function update() {
     corners[6],
     corners[7]
   );
-  /*for (var i = 0; i != 8; i += 2) {
+for (var i = 0; i != 8; i += 2) {
     var elt = document.getElementById("marker" + i);
     elt.style.left = corners[i] + "px";
     elt.style.top = corners[i + 1] + "px";

@@ -1,21 +1,18 @@
 import typescript from "@rollup/plugin-typescript";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import nodeExternals from "rollup-plugin-node-externals";
-// import dts from "rollup-plugin-dts";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import dts from "rollup-plugin-dts";
 const config = [
   {
     input: "src/index.ts",
     output: {
-      file: "build/bundle.js",
+      file: "dist/index.js",
       format: "cjs",
       sourcemap: true,
     },
     plugins: [
-      nodeExternals({
-        deps: false,
-        devDeps: true,
-      }),
+      peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({
@@ -25,6 +22,11 @@ const config = [
         tsconfig: "./tsconfig.json",
       }),
     ],
+  },
+  {
+    input: "src/index.ts",
+    output: [{ file: "dist/index.d.ts", format: "es" }],
+    plugins: [dts()],
   },
 ];
 export default config;

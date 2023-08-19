@@ -2,18 +2,14 @@
   display: block;
   text-align: center;
   text-decoration: none !important;
-}
-
-.fullWidth {
   width: 100%;
-  grid-column: 1 / -1;
 }
 
 .elementInside {
   display: block;
   background: #ccc;
   border-radius: 1.5em;
-  height: 17em;
+  height: 47em;
   overflow: hidden;
   margin-bottom: 0.5em;
 }
