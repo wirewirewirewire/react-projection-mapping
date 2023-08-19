@@ -1,0 +1,42 @@
+.element {
+  display: block;
+  text-align: center;
+  text-decoration: none !important;
+}
+
+.fullWidth {
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.elementInside {
+  display: block;
+  background: #ccc;
+  border-radius: 1.5em;
+  height: 17em;
+  overflow: hidden;
+  margin-bottom: 0.5em;
+}
+
+.text {
+  display: block;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.element:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.arrow {
+  opacity: 0;
+  transform: translateX(-1em);
+  transition: all 0.25s ease-in-out;
+  margin-left: 0.4em;
+  margin-right: -1em;
+  font-size: 0.8em;
+}

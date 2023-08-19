@@ -1,0 +1,86 @@
+@use "./meta" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  min-height: 100vh;
+}
+
+.description {
+}
+
+.title {
+  font-size: 1.2rem;
+  @include breakpoint-up(md) {
+    font-size: 1.5rem;
+  }
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  letter-spacing: 0.1em;
+}
+
+.mainTitle {
+  font-weight: 700;
+}
+
+.elements {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  @include breakpoint-up(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.exhibitionWrapper {
+  color: #c5991e;
+}
+
+.exhibition {
+  background: #fff5af;
+}
+
+.wirewireWrapper {
+  color: #c72525;
+}
+
+.wirewire {
+  background-color: #ff4848;
+}
+
+.anaboxSmartWrapper {
+  color: #7a66c3;
+}
+
+.anaboxSmart {
+  @include breakpoint-up(md) {
+    height: 27em;
+  }
+  background-color: #d8cff9;
+}
+
+.footer {
+  display: flex;
+}
+
+.link {
+  margin: 0 0.75em;
+  color: #1490d6 !important;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.spacer {
+  // margin-top: 0rem;
+  height: 1rem;
+  width: 1px;
+  background: #e6e6e6;
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  margin-top: 3em;
+}
+.link {
+  color: #1490d6 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+
+.backIcon {
+  margin-right: 0.2em;
+}
