@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.95.4](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.3...v1.95.4) (2023-08-20)
+
+
+### Bug Fixes
+
+* **docs:** improved web documentation ([7c9695f](https://github.com/wirewirewirewire/react-projection-mapping/commit/7c9695fb00dcbe6eaf44cb57dcb90e7cff1a4776))
+* **Layer:** allow empty data ([0b2cae0](https://github.com/wirewirewirewire/react-projection-mapping/commit/0b2cae0b420241e53d8a935c9683e78a291017a1))
+* **package:** publish command updated ([d58b94c](https://github.com/wirewirewirewire/react-projection-mapping/commit/d58b94cfdc8a3de8fea54a5dd5d10625e696df7b))
+
+
+
+
+
 ## [1.95.3](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.2...v1.95.3) (2023-08-19)
 
 
