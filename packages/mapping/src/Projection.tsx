@@ -88,12 +88,35 @@ const Projection: React.FC<ProjectionProps> = ({
     setDataState(data);
   }, [data]);
 
-  const updateLayer = ({ id, corners, isEnd, zIndex }: any) => {
+  type CornerType = [
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+    number
+  ];
+
+  type LayerType = {
+    id: string;
+    corners?: CornerType;
+    zIndex?: number;
+    isEnd?: boolean;
+  };
+
+  const updateLayer = ({ id, corners, isEnd, zIndex }: LayerType) => {
     setDataState((state) => {
-      onChange && onChange({ layers: { ...state, [id]: corners }, isEnd });
       const newObject = state?.[id] ? { ...state[id] } : {};
       if (zIndex !== undefined) newObject["zIndex"] = zIndex;
       if (corners) newObject["corners"] = corners;
+
+      onChange &&
+        onChange({
+          layers: { ...state, [id]: newObject },
+          isEnd,
+        });
 
       return {
         ...state,
