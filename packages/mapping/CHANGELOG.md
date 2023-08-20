@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.95.5](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.4...v1.95.5) (2023-08-20)
+
+
+### Bug Fixes
+
+* **projection:** onChange now returns correct current object instead of array ([ca6ba64](https://github.com/wirewirewirewire/react-projection-mapping/commit/ca6ba64323c511b10112ea5e0463329f01947ae1))
+
+
+
+
+
 ## [1.95.4](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.3...v1.95.4) (2023-08-20)
 
 
