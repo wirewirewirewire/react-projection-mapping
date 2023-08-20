@@ -10,7 +10,7 @@
   "scripts": {
     "build": "lerna run build --stream --prefix",
     "sync:readme": "cp README.md ./packages/mapping/README.md",
-    "lerna:publish": "lerna publish --conventional-commits"
+    "lerna:publish": "sync:readme && lerna publish --conventional-commits"
   },
   "workspaces": [
     "packages/*",

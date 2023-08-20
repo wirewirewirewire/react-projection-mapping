@@ -20,6 +20,24 @@ export default function Home() {
               <b className={styles.mainTitle}>react</b>-projection-mapping
             </h2>
           </div>
+
+          <div className={styles.footer}>
+            <Link
+              href="https://github.com/wirewirewirewire/react-projection-mapping"
+              className={styles.link}
+            >
+              GitHub{" "}
+              <FontAwesomeIcon icon={faGithub} className={styles.github} />
+            </Link>
+
+            <div className={styles.spacer} />
+            <Link
+              href="https://www.npmjs.com/package/react-projection-mapping"
+              className={styles.link}
+            >
+              npm <FontAwesomeIcon icon={faNpm} className={styles.npm} />
+            </Link>
+          </div>
           <div className={styles.elements}>
             <Element
               className={styles.exhibition}
@@ -29,23 +47,6 @@ export default function Home() {
               scene="https://prod.spline.design/cRFO1K5kSDHeXPer/scene.splinecode"
             ></Element>
             <Demo />
-          </div>
-
-          <div className={styles.footer}>
-            <Link
-              href="https://github.com/wirewirewirewire/react-projection-mapping"
-              className={styles.link}
-            >
-              GitHub <FontAwesomeIcon icon={faGithub} />
-            </Link>
-
-            <div className={styles.spacer} />
-            <Link
-              href="https://www.npmjs.com/package/react-projection-mapping"
-              className={styles.link}
-            >
-              npm <FontAwesomeIcon icon={faNpm} />
-            </Link>
           </div>
         </main>
       </Wrapper>

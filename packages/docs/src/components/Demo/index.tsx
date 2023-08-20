@@ -12,7 +12,7 @@ import styles from "./demo.module.scss";
 import Image from "next/image";
 import ProjectionData from "./ProjectionData";
 import { Checkbox } from "@wfp/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Demo() {
   const update = ({ layers, isEnd }: any) => {
@@ -20,6 +20,11 @@ export default function Demo() {
   };
   const [edit, setEdit] = useState(true);
   const [enabled, setEnabled] = useState(true);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
 
   const data = {
     "tile-0": [334, -191, 514, -108, 334, -2, 518, 83],
@@ -70,8 +75,7 @@ export default function Demo() {
         onChange={(e) => setEnabled(e.target.checked)}
         checked={enabled}
       />
-
-      <ProjectionData />
+      {loaded && <ProjectionData />}
     </Projection>
   );
 }

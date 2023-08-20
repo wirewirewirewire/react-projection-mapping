@@ -18,7 +18,7 @@
     font-size: 1.5rem;
   }
   font-weight: 400;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   margin-bottom: 3rem;
   letter-spacing: 0.1em;
 }
@@ -63,6 +63,7 @@
 
 .footer {
   display: flex;
+  font-size: 1.2em;
 }
 
 .link {
@@ -76,7 +77,15 @@
 
 .spacer {
   // margin-top: 0rem;
-  height: 1rem;
+  height: 1em;
   width: 1px;
   background: #e6e6e6;
+}
+
+.github {
+  color: #000;
+}
+
+.npm {
+  color: #cb3837;
 }
