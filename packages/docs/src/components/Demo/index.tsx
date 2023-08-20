@@ -75,7 +75,7 @@ export default function Demo() {
         onChange={(e) => setEnabled(e.target.checked)}
         checked={enabled}
       />
-      {loaded && <ProjectionData />}
+      {/*loaded && <ProjectionData />*/}
     </Projection>
   );
 }
