@@ -67,7 +67,7 @@ const Projection: React.FC<ProjectionProps> = ({
       const layerList = Object.keys(dataState);
       const selectedLayerIndex = layerList.indexOf(selectedLayer);
       if (selectedCorner === 0 && selectedLayerIndex !== 0) {
-        setSelectedLayer(dataState[layerList[selectedLayerIndex - 1]]);
+        setSelectedLayer(layerList[selectedLayerIndex - 1]);
         setSelectedCorner(0);
       } else if (selectedCorner === 0) {
         setSelectedCorner(3);
@@ -85,13 +85,20 @@ const Projection: React.FC<ProjectionProps> = ({
   }, [registerKeyPress]);
 
   React.useEffect(() => {
-    // setDataState(data);
+    setDataState(data);
   }, [data]);
 
-  const updateLayer = ({ id, corners, isEnd }: any) => {
+  const updateLayer = ({ id, corners, isEnd, zIndex }: any) => {
     setDataState((state) => {
       onChange && onChange({ layers: { ...state, [id]: corners }, isEnd });
-      return { ...state, [id]: corners };
+      const newObject = state?.[id] ? { ...state[id] } : {};
+      if (zIndex !== undefined) newObject["zIndex"] = zIndex;
+      if (corners) newObject["corners"] = corners;
+
+      return {
+        ...state,
+        [id]: newObject,
+      };
     });
   };
 

@@ -44,7 +44,7 @@ const update = ({ values, action }) => {
 };
 ```
 
-#### Get values 🔋
+### Get values 🔋
 
 `data` allows you to load the values from an endpoint.
 
@@ -58,6 +58,8 @@ useEffect(() => {
   }
 }, []);
 ```
+
+### Layer
 
 Each Element you want to distort should wrapped with `Layer`. Make sure to add an unique `id`.
 
@@ -87,7 +89,7 @@ import { Projection, SplitLayer } from "react-projection-mapping";
 </Projection>;
 ```
 
-### `useProjection()`` hook
+### `useProjection()` hook
 
 Hook to get the current distort status or manually set it from any place inside `Projection`.
 
@@ -110,9 +112,12 @@ Results from the `useProjection()` hook
 ```jsx
 {
   "data": {
-    "id-of-layer": [
-      -326, 175, -212, 93, -184, 236, -73, 157
-    ]
+    "id-of-layer": {
+      "corners": [
+        -326, 175, -212, 93, -184, 236, -73, 157
+      ],
+      "zIndex": 3
+    }
   },
   "edit": true,
   "enabled": true,
@@ -120,8 +125,19 @@ Results from the `useProjection()` hook
   "selectedLayer": "id-of-layer",
   "setSelectedCorner": () => { return number},
   "setSelectedLayer": () => {return "id-of-layer" }
-} cvfgh]       
+}       
 ```
+
+### Keyboard control
+
+While in editing mode you can use the keyboard shortcuts for fine adjustments.
+
+- `Q` move to next corner
+- `W` move to previous corner
+- `A` move z-index downwards
+- `S` move z-index upwards
+- `↑` `→` `←` `↓` Move corner
+- `⇧` + `↑` `→` `←` `↓` Move corner 10px
 
 ### Inspired by
 

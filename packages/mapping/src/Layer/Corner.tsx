@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import useProjection from "useProjection";
 
 const Corner = ({
-  distortCoordinates,
+  distortCoordinates = { corners: [] },
   x,
   y,
   handleDrag,
@@ -17,7 +17,12 @@ const Corner = ({
     selectedCorner,
     setSelectedCorner,
     setSelectedLayer,
+    updateLayer,
   } = useProjection();
+
+  const infoStyle: React.CSSProperties = {
+    background: "#fff",
+  };
 
   const cornerStyle: React.CSSProperties = {
     position: "absolute",
@@ -29,7 +34,11 @@ const Corner = ({
       selectedCorner === corner && selectedLayer === layer
         ? "3px solid #FF2B2B"
         : "3px solid #0da8ff",
-    color: "#fff",
+    boxShadow:
+      selectedCorner === corner && selectedLayer === layer
+        ? "0px 0 4px 3px rgba(0, 0, 0, 0.1)"
+        : undefined,
+    // color: "#fff",
     fontSize: "0.5em",
     cursor: "pointer",
     transition: "background 0.1s ease-in-out",
@@ -41,8 +50,8 @@ const Corner = ({
   const move = (xMove = 0, yMove = 0, multiplier = 1) => {
     handleDrag(
       {
-        x: distortCoordinates[x] + xMove * multiplier,
-        y: distortCoordinates[y] + yMove * multiplier,
+        x: distortCoordinates.corners[x] + xMove * multiplier,
+        y: distortCoordinates.corners[y] + yMove * multiplier,
       },
       x,
       y,
@@ -77,6 +86,28 @@ const Corner = ({
       move(0, 1, multiplier);
     }
 
+    // zIndex up
+    if (event.keyCode === 65) {
+      updateLayer({
+        id: layer,
+        isEnd: true,
+        zIndex:
+          (distortCoordinates.zIndex === undefined
+            ? 0
+            : distortCoordinates.zIndex) - 1,
+      });
+    }
+    if (event.keyCode === 83) {
+      updateLayer({
+        id: layer,
+        isEnd: true,
+        zIndex:
+          (distortCoordinates.zIndex === undefined
+            ? 0
+            : distortCoordinates.zIndex) + 1,
+      });
+    }
+
     /* */
   };
 
@@ -87,16 +118,20 @@ const Corner = ({
     };
   }, [edit, registerKeyPress]);
 
+  if (!distortCoordinates?.corners) return null;
   return (
     <Draggable
       defaultPosition={{
-        x: distortCoordinates[0],
-        y: distortCoordinates[1],
+        x: distortCoordinates.corners[0],
+        y: distortCoordinates.corners[1],
       }}
       onDrag={(e, ui) => handleDrag(ui, x, y, false)}
       onStop={(e, ui) => handleDrag(ui, x, y, true)}
       // bounds="parent"
-      position={{ x: distortCoordinates[x], y: distortCoordinates[y] }}
+      position={{
+        x: distortCoordinates.corners[x],
+        y: distortCoordinates.corners[y],
+      }}
     >
       <div
         style={cornerStyle}
@@ -105,7 +140,13 @@ const Corner = ({
           setSelectedLayer(layer);
           setSelectedCorner(corner);
         }}
-      ></div>
+      >
+        {corner === 0 && (
+          <div className="react-projection-mapping__info" style={infoStyle}>
+            {distortCoordinates.zIndex}
+          </div>
+        )}
+      </div>
     </Draggable>
   );
 };

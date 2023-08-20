@@ -61,9 +61,9 @@ export default function Layer({
   }, [layerRef.current]);
 
   React.useEffect(() => {
-    if (!layerRef.current || !distortCoordinates) return;
+    if (!layerRef.current || !distortCoordinates?.corners) return;
     const transform = layerRef.current
-      ? transform2d(layerRef.current, ...distortCoordinates)
+      ? transform2d(layerRef.current, ...distortCoordinates.corners)
       : undefined;
 
     setTransform(transform);
@@ -71,7 +71,7 @@ export default function Layer({
 
   const handleDrag = (ui, x, y, isEnd) => {
     if (!distortCoordinates) return;
-    const cornersNew = [...distortCoordinates];
+    const cornersNew = [...distortCoordinates.corners];
     cornersNew[x] = ui.x;
     cornersNew[y] = ui.y;
 
@@ -84,20 +84,20 @@ export default function Layer({
 
   if (!enabled) return children;
 
-  console.log("distortCoordinates", distortCoordinates);
-
   const corner = {
     distortCoordinates,
     handleDrag,
     layer: id,
   };
   return (
-    <div style={wrapper}>
+    <div style={wrapper} className="react-projection-mapping__layer">
       <div
+        className="react-projection-mapping__distort"
         style={{
           transformOrigin: "0 0",
           transform: transform,
           ...distortContainerElement,
+          zIndex: distortCoordinates?.zIndex,
         }}
         ref={layerRef}
         onClick={() => {

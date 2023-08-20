@@ -50,12 +50,16 @@ export default function DistortSplit({ clip, children, id, style }: any) {
   };
 
   return (
-    <div className="distort__original" style={stylesOriginal} ref={orignalRef}>
-      <div className="distort__wrapper" style={stylesWrapper}>
+    <div
+      className="react-projection-mapping__split__original"
+      style={stylesOriginal}
+      ref={orignalRef}
+    >
+      <div className="mapping__split__wrapper" style={stylesWrapper}>
         <Layer id={id}>
-          <div className="distort__split" style={styles}>
+          <div className="mapping__split__wrapper__split" style={styles}>
             <div
-              className="distort__split__controls"
+              className="mapping__split__wrapper__controls"
               style={stylesBorder}
             ></div>
             <div ref={distortContainerRef}>{children}</div>
