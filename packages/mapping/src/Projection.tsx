@@ -41,36 +41,69 @@ const Projection: React.FC<ProjectionProps> = ({
   const [selectedLayer, setSelectedLayer] = React.useState<any>(undefined);
   const [selectedCorner, setSelectedCorner] = React.useState<any>(0);
 
-  const registerKeyPress = (event) => {
+  const registerKeyPressProjection = (event) => {
+    const cornersLength = Array.isArray(dataState?.[selectedLayer]?.corners[0])
+      ? dataState?.[selectedLayer]?.corners?.length
+      : 4;
     // Forwards
     if (event.keyCode === 87) {
       const layerList = Object.keys(dataState);
       const selectedLayerIndex = layerList.indexOf(selectedLayer);
+
+      console.log(
+        "jump prepare",
+        selectedLayerIndex,
+        layerList.length,
+        selectedCorner,
+        cornersLength - 1
+      );
+
+      // If no layer: ump to first layer and first corner
       if (selectedLayerIndex === -1) {
+        console.log("jump to first layer and first corner");
         setSelectedLayer(layerList[0]);
         setSelectedCorner(0);
       } else if (
-        selectedCorner === 3 &&
+        // If last point and next layer exists: Jump to next layer and first corner
+        selectedCorner === cornersLength - 1 &&
         selectedLayerIndex < layerList.length
       ) {
+        console.log(
+          " If last point and next layer exists: Jump to next layer and first corner",
+          selectedCorner + 1
+        );
         setSelectedLayer(layerList[selectedLayerIndex + 1]);
         setSelectedCorner(0);
-      } else if (selectedCorner === 3) {
+      } else if (
+        // If last point and no next layer: Jump to first layer and first corner
+        selectedLayerIndex === layerList.length &&
+        selectedCorner === cornersLength
+      ) {
+        console.log(
+          "If last point and no next layer: Jump to first layer and first corner: jump to first layer and first corner"
+        );
+        setSelectedLayer(layerList[0]);
         setSelectedCorner(0);
       } else {
+        console.log("jump to next corner", selectedCorner + 1);
+        // Jump to next corner
         setSelectedCorner(selectedCorner + 1);
       }
+
+      console.log("jump result", selectedLayerIndex, selectedCorner);
     }
 
     // Backwards
     if (event.keyCode === 81) {
       const layerList = Object.keys(dataState);
       const selectedLayerIndex = layerList.indexOf(selectedLayer);
+      // Jump to previous layer and last corner
       if (selectedCorner === 0 && selectedLayerIndex !== 0) {
         setSelectedLayer(layerList[selectedLayerIndex - 1]);
-        setSelectedCorner(0);
+        setSelectedCorner(cornersLength - 1);
+        // Jump to last corner
       } else if (selectedCorner === 0) {
-        setSelectedCorner(3);
+        setSelectedCorner(cornersLength - 1);
       } else {
         setSelectedCorner(selectedCorner - 1);
       }
@@ -78,11 +111,12 @@ const Projection: React.FC<ProjectionProps> = ({
   };
 
   React.useEffect(() => {
-    if (edit) window.addEventListener("keydown", registerKeyPress);
+    if (edit) window.addEventListener("keydown", registerKeyPressProjection);
     return () => {
-      if (edit) window.removeEventListener("keydown", registerKeyPress);
+      if (edit)
+        window.removeEventListener("keydown", registerKeyPressProjection);
     };
-  }, [registerKeyPress]);
+  }, [registerKeyPressProjection]);
 
   React.useEffect(() => {
     setDataState(data);
@@ -138,7 +172,6 @@ const Projection: React.FC<ProjectionProps> = ({
     setSelectedCorner,
   };
 
-  console.log("ProjectionContext", ctx);
   return (
     <ProjectionContext.Provider value={ctx}>
       {children}

@@ -7,6 +7,7 @@ const Corner = ({
   x,
   y,
   handleDrag,
+  index,
   position,
   layer,
   corner,
@@ -31,11 +32,11 @@ const Corner = ({
     marginLeft: "-10px",
     marginTop: "-10px",
     border:
-      selectedCorner === corner && selectedLayer === layer
+      selectedCorner === index && selectedLayer === layer
         ? "3px solid #FF2B2B"
         : "3px solid #0da8ff",
     boxShadow:
-      selectedCorner === corner && selectedLayer === layer
+      selectedCorner === index && selectedLayer === layer
         ? "0px 0 4px 3px rgba(0, 0, 0, 0.1)"
         : undefined,
     // color: "#fff",
@@ -50,11 +51,13 @@ const Corner = ({
   const move = (xMove = 0, yMove = 0, multiplier = 1) => {
     handleDrag(
       {
-        x: distortCoordinates.corners[x] + xMove * multiplier,
-        y: distortCoordinates.corners[y] + yMove * multiplier,
+        x: x + xMove * multiplier,
+        y: y + yMove * multiplier,
       },
+
       x,
       y,
+      index,
       true
     );
   };
@@ -62,7 +65,7 @@ const Corner = ({
   const registerKeyPress = (event) => {
     event.preventDefault();
 
-    if (selectedLayer !== layer || selectedCorner !== corner) return;
+    if (selectedLayer !== layer || selectedCorner !== index) return;
     // top
 
     let multiplier = 1;
@@ -106,8 +109,6 @@ const Corner = ({
             : distortCoordinates.zIndex) + 1,
       });
     }
-
-    /* */
   };
 
   React.useEffect(() => {
@@ -117,19 +118,18 @@ const Corner = ({
     };
   }, [edit, registerKeyPress]);
 
-  if (!distortCoordinates?.corners) return null;
   return (
     <Draggable
       defaultPosition={{
-        x: distortCoordinates.corners[0],
-        y: distortCoordinates.corners[1],
+        x: x,
+        y: y,
       }}
-      onDrag={(e, ui) => handleDrag(ui, x, y, false)}
-      onStop={(e, ui) => handleDrag(ui, x, y, true)}
+      onDrag={(e, ui) => handleDrag(ui, x, y, index, false)}
+      onStop={(e, ui) => handleDrag(ui, x, y, index, true)}
       // bounds="parent"
       position={{
-        x: distortCoordinates.corners[x],
-        y: distortCoordinates.corners[y],
+        x: x,
+        y: y,
       }}
     >
       <div
@@ -137,7 +137,7 @@ const Corner = ({
         className={`react-projection-mapping__corner react-projection-mapping__corner--${position}`}
         onClick={(e) => {
           setSelectedLayer(layer);
-          setSelectedCorner(corner);
+          setSelectedCorner(index);
         }}
       >
         {corner === 0 && (

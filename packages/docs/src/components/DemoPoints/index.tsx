@@ -2,11 +2,11 @@
 
 import {
   Projection,
-  Layer,
+  Points,
   SplitLayer,
   useProjection,
+  Layer,
 } from "react-projection-mapping";
-// import sampleImageMapping from "./sample-image-mapping.jpg";
 import sampleImageMapping from "./popsicle.svg";
 import styles from "./demo.module.scss";
 import Image from "next/image";
@@ -20,7 +20,7 @@ const ProjectionDataWithNoSSR = dynamic(() => import("./ProjectionData"), {
   ssr: false,
 });
 
-export default function Demo() {
+export default function DemoPoints() {
   const update = ({ layers, isEnd }: any) => {
     console.log("update", layers, isEnd);
   };
@@ -28,9 +28,23 @@ export default function Demo() {
   const [enabled, setEnabled] = useState(true);
 
   const data = {
-    "tile-0": { corners: [334, -191, 514, -108, 334, -2, 518, 83], zIndex: 3 },
-    "tile-1": { corners: [315, -107, 461, -213, 317, 84, 461, -22] },
-    imageLayer: { corners: [-326, 175, -212, 93, -184, 236, -73, 157] },
+    "points-0": {
+      corners: [
+        [25, 50],
+        [50, 75],
+        [75, 80],
+        [100, 40],
+        [125, 30],
+        [150, 60],
+        [175, 50],
+      ],
+      zIndex: 3,
+    },
+
+    imageLayer: {
+      corners: [334, -191, 514, -108, 334, -2, 518, 83],
+      zIndex: 3,
+    },
 
     //textLayer: [0, 0, 100, 0, 100, 100, 0, 100],
     //imageLayer: [0, 0, 100, 0, 100, 100, 0, 100],
@@ -38,22 +52,10 @@ export default function Demo() {
   return (
     <Projection data={data} onChange={update} edit={edit} enabled={enabled}>
       <div className={styles.preview}>
-        <div className={styles.wrapperText}>
-          {[...Array(2)].map((y, index) => (
-            <SplitLayer
-              key={index}
-              id={`tile-${index}`}
-              clip={[0, index === 0 ? 50 : 0, 0, index === 0 ? 0 : 50]}
-            >
-              <div>
-                This is a text layer that is split so it can be wrapped around a
-                corner. It can contain any html element including{" "}
-                <a href="#">Links</a> or videos.
-              </div>
-            </SplitLayer>
-          ))}
-        </div>
+        <div className={styles.wrapperText}></div>
         <div className={styles.wrapperImage}>
+          <Points id="points-0"></Points>
+
           <Layer id="imageLayer">
             <Image
               priority

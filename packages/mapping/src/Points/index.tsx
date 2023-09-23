@@ -1,7 +1,6 @@
 import * as React from "react";
-import { transform2d } from "./distortContainer";
 import useProjection from "../useProjection";
-import Corner from "./Corner";
+import Point from "./Point";
 
 const wrapper: React.CSSProperties = {
   height: "100%",
@@ -20,7 +19,7 @@ const distortContainerActive: React.CSSProperties = {
   position: "absolute",
 };
 
-export default function Layer({
+export default function Points({
   edit: editLayer,
   enabled: enabledLayer,
   children,
@@ -41,7 +40,7 @@ export default function Layer({
   const distortCoordinates = data?.[id] || false;
 
   /* Set default coordinates */
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     if (!layerRef.current || distortCoordinates) return;
     const position = layerRef.current.getBoundingClientRect();
     const p = [
@@ -56,26 +55,29 @@ export default function Layer({
     ];
 
     updateLayer({ id, corners: p, isEnd: true });
-  }, [layerRef.current]);
+  }, [layerRef.current]);*/
 
   /* Update on new coordinates */
-  React.useEffect(() => {
+  /* React.useEffect(() => {
     if (!layerRef.current || !distortCoordinates?.corners) return;
     const transform = layerRef.current
       ? transform2d(layerRef.current, ...distortCoordinates.corners)
       : undefined;
 
     setTransform(transform);
-  }, [layerRef.current, distortCoordinates]);
+  }, [layerRef.current, distortCoordinates]);*/
 
   /* On Drag */
-  const handleDrag = (ui, x, y, isEnd) => {
-    if (!distortCoordinates) return;
+  const handleDrag = (ui, x, y, index, isEnd) => {
+    console.log("handle drag", ui, x, y, index, isEnd);
+    const pointsNew = [...distortCoordinates.corners];
+    pointsNew[index] = [ui.x, ui.y];
+    /*if (!distortCoordinates) return;
     const cornersNew = [...distortCoordinates.corners];
     cornersNew[x] = ui.x;
     cornersNew[y] = ui.y;
-
-    updateLayer({ id, corners: cornersNew, isEnd });
+*/
+    updateLayer({ id, corners: pointsNew, isEnd });
   };
 
   const distortContainerElement = edit
@@ -84,14 +86,10 @@ export default function Layer({
 
   if (!enabled) return children;
 
-  const corner = {
-    distortCoordinates,
-    handleDrag,
-    layer: id,
-  };
+  console.log("distortCoordinates", distortCoordinates);
   return (
     <div style={wrapper} className="react-projection-mapping__layer">
-      <div
+      {/*<div
         className="react-projection-mapping__distort"
         style={{
           transformOrigin: "0 0",
@@ -106,13 +104,19 @@ export default function Layer({
         }}
       >
         {children}
-      </div>
-      {edit && (
+      </div>*/}
+      {edit && distortCoordinates?.corners && (
         <>
-          <Corner {...corner} x={0} y={1} position="topLeft" corner={0} />
-          <Corner {...corner} x={2} y={3} position="topRight" corner={1} />
-          <Corner {...corner} x={4} y={5} position="bottomRight" corner={2} />
-          <Corner {...corner} x={6} y={7} position="bottomLeft" corner={3} />
+          {distortCoordinates.corners.map((corner, index) => (
+            <Point
+              distortCoordinates={distortCoordinates}
+              handleDrag={handleDrag}
+              index={index}
+              layer={id}
+              x={corner[0]}
+              y={corner[1]}
+            />
+          ))}
         </>
       )}
     </div>

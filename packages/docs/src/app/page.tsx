@@ -7,6 +7,7 @@ import Spline from "@splinetool/react-spline";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Demo from "@/components/Demo";
+import DemoPoints from "@/components/DemoPoints";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
 
@@ -46,7 +47,8 @@ export default function Home() {
               text="Exhibition Management"
               scene="https://prod.spline.design/cRFO1K5kSDHeXPer/scene.splinecode"
             ></Element>
-            <Demo />
+            {/* <Demo /> */}
+            <DemoPoints />
           </div>
         </main>
       </Wrapper>

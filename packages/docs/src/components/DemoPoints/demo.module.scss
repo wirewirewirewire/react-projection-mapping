@@ -1,0 +1,25 @@
+.preview {
+  height: 36em;
+}
+.wrapperText {
+  // border: 3px solid blue;
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 400px;
+  font-size: 2em;
+}
+
+.wrapperImage {
+  // border: 3px solid blue;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
