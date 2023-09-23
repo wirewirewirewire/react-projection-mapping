@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.96.0](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.5...v1.96.0) (2023-09-23)
+
+
+### Features
+
+* **Points:** added a feature to also have points ([a9acc87](https://github.com/wirewirewirewire/react-projection-mapping/commit/a9acc8789083df1c49ab3c1270f23001cb90602e))
+
+
+
+
+
 ## [1.95.5](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.95.4...v1.95.5) (2023-08-20)
 
 
