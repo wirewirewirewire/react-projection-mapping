@@ -53,8 +53,12 @@ export default function DemoPoints() {
     <Projection data={data} onChange={update} edit={edit} enabled={enabled}>
       <div className={styles.preview}>
         <div className={styles.wrapperText}></div>
+
+        <div className={styles.newPoints}>
+          <Points id="points-without-data" />
+        </div>
         <div className={styles.wrapperImage}>
-          <Points id="points-0"></Points>
+          <Points id="points-0" />
 
           <Layer id="imageLayer">
             <Image

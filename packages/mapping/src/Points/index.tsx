@@ -33,29 +33,22 @@ export default function Points({
     enabled = enabledLayer,
     data,
     updateLayer,
-    setSelectedLayer,
-    setSelectedCorner,
   } = useProjection();
 
   const distortCoordinates = data?.[id] || false;
 
   /* Set default coordinates */
-  /*React.useEffect(() => {
-    if (!layerRef.current || distortCoordinates) return;
-    const position = layerRef.current.getBoundingClientRect();
+  React.useEffect(() => {
+    if (distortCoordinates) return;
+
     const p = [
-      0,
-      0,
-      position.width,
-      0,
-      0,
-      position.height,
-      position.width,
-      position.height,
+      [10, 10],
+      [Math.floor(Math.random() * 101), Math.floor(Math.random() * 101)],
     ];
 
+    console.log("initialize coord");
     updateLayer({ id, corners: p, isEnd: true });
-  }, [layerRef.current]);*/
+  }, [data]);
 
   /* Update on new coordinates */
   /* React.useEffect(() => {
@@ -88,8 +81,10 @@ export default function Points({
 
   console.log("distortCoordinates", distortCoordinates);
   return (
-    <div style={wrapper} className="react-projection-mapping__layer">
-      {/*<div
+    <>
+      {
+        // div style={wrapper} className="react-projection-mapping__layer"
+        /*<div
         className="react-projection-mapping__distort"
         style={{
           transformOrigin: "0 0",
@@ -104,7 +99,8 @@ export default function Points({
         }}
       >
         {children}
-      </div>*/}
+      </div>*/
+      }
       {edit && distortCoordinates?.corners && (
         <>
           {distortCoordinates.corners.map((corner, index) => (
@@ -119,6 +115,6 @@ export default function Points({
           ))}
         </>
       )}
-    </div>
+    </>
   );
 }

@@ -119,7 +119,7 @@ const Projection: React.FC<ProjectionProps> = ({
   }, [registerKeyPressProjection]);
 
   React.useEffect(() => {
-    setDataState(data);
+    if (dataState !== data) setDataState(data);
   }, [data]);
 
   type CornerType = [
@@ -152,6 +152,7 @@ const Projection: React.FC<ProjectionProps> = ({
           isEnd,
         });
 
+      console.log("updateLayer", id, corners, isEnd, zIndex);
       return {
         ...state,
         [id]: newObject,
@@ -171,6 +172,8 @@ const Projection: React.FC<ProjectionProps> = ({
     setSelectedLayer,
     setSelectedCorner,
   };
+
+  console.log("dataState", dataState);
 
   return (
     <ProjectionContext.Provider value={ctx}>
