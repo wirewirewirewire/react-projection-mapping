@@ -2,13 +2,12 @@ import * as React from "react";
 import Draggable from "react-draggable";
 import useProjection from "useProjection";
 
-const Corner = ({
+const Point = ({
   distortCoordinates = { corners: [] },
   x,
   y,
   handleDrag,
   index,
-  position,
   layer,
   corner,
 }: any) => {
@@ -67,7 +66,6 @@ const Corner = ({
 
     if (selectedLayer !== layer || selectedCorner !== index) return;
     // top
-
     let multiplier = 1;
     if (event.shiftKey) {
       multiplier = 10;
@@ -134,8 +132,8 @@ const Corner = ({
     >
       <div
         style={cornerStyle}
-        className={`react-projection-mapping__corner react-projection-mapping__corner--${position}`}
-        onClick={(e) => {
+        className={`react-projection-mapping__corner react-projection-mapping__corner--index--${index} react-projection-mapping__layer--${layer}`}
+        onClick={() => {
           setSelectedLayer(layer);
           setSelectedCorner(index);
         }}
@@ -150,4 +148,4 @@ const Corner = ({
   );
 };
 
-export default Corner;
+export default Point;
