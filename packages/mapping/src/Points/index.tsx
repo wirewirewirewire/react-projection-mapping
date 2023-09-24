@@ -105,6 +105,7 @@ export default function Points({
         <>
           {distortCoordinates.corners.map((corner, index) => (
             <Point
+              key={index}
               distortCoordinates={distortCoordinates}
               handleDrag={handleDrag}
               index={index}
