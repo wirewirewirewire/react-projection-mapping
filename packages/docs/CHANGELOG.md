@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.97.1](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.97.0...v1.97.1) (2023-09-24)
+
+
+### Bug Fixes
+
+* **Layer:** better layer select ([b9f7235](https://github.com/wirewirewirewire/react-projection-mapping/commit/b9f72357a265201edc5a9f4dcf738c7c510926a3))
+
+
+
+
+
 # [1.97.0](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.96.0...v1.97.0) (2023-09-23)
 
 
