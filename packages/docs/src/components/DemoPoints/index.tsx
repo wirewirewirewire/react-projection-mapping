@@ -61,12 +61,14 @@ export default function DemoPoints() {
           <Points id="points-0" />
 
           <Layer id="imageLayer">
-            <Image
-              priority
-              alt="Picture of some flag in the Salar de Uyuni"
-              src={sampleImageMapping}
-              className={styles.image}
-            />
+            <Layer id="imageLayerb">
+              <Image
+                priority
+                alt="Picture of some flag in the Salar de Uyuni"
+                src={sampleImageMapping}
+                className={styles.image}
+              />
+            </Layer>
           </Layer>
         </div>
       </div>

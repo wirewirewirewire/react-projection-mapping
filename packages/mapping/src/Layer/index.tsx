@@ -30,13 +30,15 @@ export default function Layer({
   const [transform, setTransform] = React.useState<any>(undefined);
 
   const {
-    edit = editLayer,
+    edit: editProjection,
     enabled = enabledLayer,
     data,
     updateLayer,
     setSelectedLayer,
     setSelectedCorner,
   } = useProjection();
+
+  const edit = editLayer !== undefined ? editLayer : editProjection;
 
   const distortCoordinates = data?.[id] || false;
 
@@ -100,10 +102,10 @@ export default function Layer({
           zIndex: distortCoordinates?.zIndex,
         }}
         ref={layerRef}
-        onClick={() => {
+        /*onClick={() => {
           setSelectedLayer(id);
           setSelectedCorner(0);
-        }}
+        }}*/
       >
         {children}
       </div>
