@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.98.1](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.98.0...v1.98.1) (2023-10-21)
+
+
+### Bug Fixes
+
+* **package:** added main entry and keywords ([d8ed6f9](https://github.com/wirewirewirewire/react-projection-mapping/commit/d8ed6f913afbce381494095c512a8e57f81e7f7b))
+* **package:** deploy new build ([adff63d](https://github.com/wirewirewirewire/react-projection-mapping/commit/adff63d73194454d2a391cfca4cf30d489926941))
+
+
+
+
+
 # [1.98.0](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.97.3...v1.98.0) (2023-10-21)
 
 
