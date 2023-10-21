@@ -34,8 +34,6 @@ export default function Layer({
     enabled = enabledLayer,
     data,
     updateLayer,
-    setSelectedLayer,
-    setSelectedCorner,
   } = useProjection();
 
   const edit = editLayer !== undefined ? editLayer : editProjection;

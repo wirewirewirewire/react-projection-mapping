@@ -24,18 +24,11 @@ export default function Element({
 
   const objectToAnimate: any = useRef();
 
-  /*const onHover = (spline: any) => {
-      console.log("onHover");
-      spline.setZoom(3);
-    };*/
-
   function triggerAnimation(isShown: boolean) {
     if (!objectToAnimate.current) return null;
     if (isShown) {
-      console.log("innnn");
       objectToAnimate.current.emitEvent("keyDown");
     } else {
-      console.log("outtt");
       objectToAnimate.current.emitEvent("keyUp");
     }
   }

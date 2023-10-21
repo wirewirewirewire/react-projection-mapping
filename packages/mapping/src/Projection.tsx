@@ -50,17 +50,8 @@ const Projection: React.FC<ProjectionProps> = ({
       const layerList = Object.keys(dataState);
       const selectedLayerIndex = layerList.indexOf(selectedLayer);
 
-      console.log(
-        "jump prepare",
-        selectedLayerIndex,
-        layerList.length,
-        selectedCorner,
-        cornersLength - 1
-      );
-
       // If no layer: ump to first layer and first corner
       if (selectedLayerIndex === -1) {
-        console.log("jump to first layer and first corner");
         setSelectedLayer(layerList[0]);
         setSelectedCorner(0);
       } else if (
@@ -68,10 +59,6 @@ const Projection: React.FC<ProjectionProps> = ({
         selectedCorner === cornersLength - 1 &&
         selectedLayerIndex < layerList.length
       ) {
-        console.log(
-          " If last point and next layer exists: Jump to next layer and first corner",
-          selectedCorner + 1
-        );
         setSelectedLayer(layerList[selectedLayerIndex + 1]);
         setSelectedCorner(0);
       } else if (
@@ -79,18 +66,12 @@ const Projection: React.FC<ProjectionProps> = ({
         selectedLayerIndex === layerList.length &&
         selectedCorner === cornersLength
       ) {
-        console.log(
-          "If last point and no next layer: Jump to first layer and first corner: jump to first layer and first corner"
-        );
         setSelectedLayer(layerList[0]);
         setSelectedCorner(0);
       } else {
-        console.log("jump to next corner", selectedCorner + 1);
         // Jump to next corner
         setSelectedCorner(selectedCorner + 1);
       }
-
-      console.log("jump result", selectedLayerIndex, selectedCorner);
     }
 
     // Backwards
@@ -152,7 +133,6 @@ const Projection: React.FC<ProjectionProps> = ({
           isEnd,
         });
 
-      console.log("updateLayer", id, corners, isEnd, zIndex);
       return {
         ...state,
         [id]: newObject,
@@ -172,8 +152,6 @@ const Projection: React.FC<ProjectionProps> = ({
     setSelectedLayer,
     setSelectedCorner,
   };
-
-  console.log("dataState", dataState);
 
   return (
     <ProjectionContext.Provider value={ctx}>
