@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.98.0](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.97.3...v1.98.0) (2023-10-21)
+
+
+### Features
+
+* **package:** remove console.logs ([7a0160f](https://github.com/wirewirewirewire/react-projection-mapping/commit/7a0160fc0083460bbc95152a3da4df2b9b8c944a))
+
+
+
+
+
 ## [1.97.3](https://github.com/wirewirewirewire/react-projection-mapping/compare/v1.97.2...v1.97.3) (2023-09-24)
 
 **Note:** Version bump only for package docs
