@@ -7,6 +7,19 @@
     "name": "Robert Gühne",
     "email": "robert@wirewire.de"
   },
+  "description": "A set of tools for projection mapping with react",
+  "main": "dist/index.js",
+  "keywords": [
+    "react",
+    "projection",
+    "mapping",
+    "projection-mapping",
+    "projectionmapping",
+    "projection mapping",
+    "projectionmappingtools",
+    "projection mapping tools",
+    "projectionmappingtools"
+  ],
   "scripts": {
     "build": "lerna run build --stream --prefix",
     "sync:readme": "cp README.md ./packages/mapping/README.md",
