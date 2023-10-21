@@ -135,7 +135,7 @@ const Corner = ({
       <div
         style={cornerStyle}
         className={`react-projection-mapping__corner react-projection-mapping__corner--${position}  react-projection-mapping__index--${layer}`}
-        onClick={(e) => {
+        onClick={() => {
           setSelectedLayer(layer);
           setSelectedCorner(corner);
         }}
